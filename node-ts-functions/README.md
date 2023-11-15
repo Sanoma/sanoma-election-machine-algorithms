@@ -38,9 +38,12 @@ developing by running the tests in watch mode.
 
 ## What algorithms are covered here?
 
-Currently, this repository in full contains the algorithm that powers the
-Helsingin Sanomat election machine for the 2023 parliamentary elections, though
-the manhattan matching method is the one used in other Sanoma machines.
+Currently, this repository in full contains the algorithms that power the
+Helsingin Sanomat election machine for the 2023 parliamentary elections and
+the 2024 presidential elections.
+
+The [manhattan-matcher.ts](./matching-algorithm/match-candidate/manhattan-matcher.ts)
+contains also the function to compute value maps using sum variables over the questions.
 
 The easiest way to dig into the algorithms is to start from the
 [match-candidate](./matching-algorithm/match-candidate) folder - the abstraction

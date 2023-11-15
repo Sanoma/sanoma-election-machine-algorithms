@@ -20,11 +20,14 @@ export const createMockSecondAnswerer = (
   };
 };
 
-export const createAllSameAnswersFirstAnswerer = (value: number) =>
+export const createAllSameAnswersFirstAnswerer = (
+  value: number,
+  startIndex = 0
+) =>
   createMockFirstAnswerer(
     ...Array(30)
       .fill(value)
-      .map((answer, index) => ({ questionId: index, answer }))
+      .map((answer, index) => ({ questionId: index + startIndex, answer }))
   );
 
 export const createAllSameAnswersSecondAnswerer = (id: string, value: number) =>

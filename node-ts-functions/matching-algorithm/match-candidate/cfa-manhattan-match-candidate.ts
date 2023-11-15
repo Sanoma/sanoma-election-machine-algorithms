@@ -3,23 +3,11 @@ import {
   distanceToPercentage,
   doManhattanMatch
 } from '../matchers/manhattan-matcher';
-import { Answer, FullAnswer } from '../types/answers';
+import { Answer } from '../types/answers';
 import { Candidate } from '../types/candidate';
 import { FactorPoints } from '../types/factor-points';
 import { Match } from '../types/matchers';
-
-export const scale = (
-  input: number,
-  fromLower: number,
-  fromUpper: number,
-  toLower: number,
-  toUpper: number
-) => {
-  return (
-    ((input - fromLower) * (toUpper - toLower)) / (fromUpper - fromLower) +
-    toLower
-  );
-};
+import { scale } from '../utils/scale';
 
 /**
  *
@@ -36,7 +24,7 @@ export const scale = (
  * @param candidates candidates with their answers and factor points
  * @param manhattanIds ids of questions that should be considered as
  * "fact questions" and measured with manhattan distance
- * @returns
+ * @returns The matches, sorted by distance
  */
 export const matchCandidates = (
   citizenAnswers: Answer[],

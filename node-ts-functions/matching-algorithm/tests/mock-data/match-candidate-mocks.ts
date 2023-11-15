@@ -95,7 +95,7 @@ export const exampleCitizenFactorPoints: FactorPoints = {
   'Vasemmisto-Oikeisto': 0.6489504621599762
 };
 
-export const exampleCandidates: Candidate[] = [
+export const cfaManhattanexampleCandidates: Candidate[] = [
   {
     answers: exampleCitizenAnswers, // one candidate with exactly same answers,
     factorPoints: exampleCitizenFactorPoints,
@@ -121,5 +121,33 @@ export const exampleCandidates: Candidate[] = [
   },
   allAnswersMissingCanddiate,
   allAnswersHalfFactorPointsMissingCanddiate,
+  allFivesCandidate
+];
+
+export const manhattanexampleCandidates: Candidate[] = [
+  {
+    answers: exampleCitizenAnswers, // one candidate with exactly same answers,
+    factorPoints: exampleCitizenFactorPoints,
+    id: 'exactMatchCandidate'
+  },
+  {
+    answers: exampleCitizenAnswers.map((answer) => ({
+      ...answer,
+      // Otherwise same answers as citizen, but first 3 are 1
+      answer: answer.questionId < 4 ? 1 : answer.answer
+    })),
+    factorPoints: allOnesFactorPoints,
+    id: 'firstThreeOnesCandidate'
+  },
+  {
+    answers: exampleCitizenAnswers.map((answer) => ({
+      ...answer,
+      // Otherwise same answers as citizen, but first is 1
+      answer: answer.questionId === 1 ? 4 : answer.answer
+    })),
+    factorPoints: exampleCitizenFactorPoints,
+    id: 'onlyDifferenceIsFirstQuestion'
+  },
+  allAnswersMissingCanddiate,
   allFivesCandidate
 ];

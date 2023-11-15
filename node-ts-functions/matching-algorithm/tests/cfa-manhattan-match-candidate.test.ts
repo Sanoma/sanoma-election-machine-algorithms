@@ -1,5 +1,6 @@
-import { matchCandidates, scale } from '../match-candidate/match-candidate';
+import { matchCandidates } from '../match-candidate/cfa-manhattan-match-candidate';
 import { maxCfaDistance } from '../matchers/cfa-matcher';
+import { scale } from '../utils/scale';
 import { createAllSameAnswersFirstAnswerer } from './mock-data/answerer-mocks';
 import {
   allAnswersHalfFactorPointsMissingCanddiate,
@@ -9,7 +10,7 @@ import {
   allOnesFactorPoints,
   allThreesCandidate,
   allTwosCandidate,
-  exampleCandidates,
+  cfaManhattanexampleCandidates,
   exampleCitizenAnswers,
   exampleCitizenFactorPoints
 } from './mock-data/match-candidate-mocks';
@@ -227,7 +228,7 @@ describe('election answer proxies', () => {
     const match = matchCandidates(
       exampleCitizenAnswers,
       exampleCitizenFactorPoints,
-      exampleCandidates,
+      cfaManhattanexampleCandidates,
       [1, 2, 3, 11, 24]
     );
 
